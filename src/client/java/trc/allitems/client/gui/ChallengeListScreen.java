@@ -49,11 +49,11 @@ public class ChallengeListScreen extends Screen {
     private static final int SLOT_NEXT = 7;
     private static final int SLOT_MISSING = 8;
 
-    private static final ItemStack GREEN = new ItemStack(Items.LIME_CONCRETE);
-    private static final ItemStack RED = new ItemStack(Items.RED_CONCRETE);
+    private static final ItemStack GREEN = new ItemStack(Items.CONCRETE.lime());
+    private static final ItemStack RED = new ItemStack(Items.CONCRETE.red());
     private static final ItemStack ARROW = new ItemStack(Items.ARROW);
     private static final ItemStack CLOCK = new ItemStack(Items.CLOCK);
-    private static final ItemStack FILLER = new ItemStack(Items.GRAY_STAINED_GLASS_PANE);
+    private static final ItemStack FILLER = new ItemStack(Items.STAINED_GLASS_PANE.gray());
 
     private final Set<Identifier> collected;
     private final Set<Identifier> skipped;

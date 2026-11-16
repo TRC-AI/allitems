@@ -15,16 +15,14 @@ public final class ListKey {
 
     private ListKey() {}
 
-    public static void register() {
-        ClientTickEvents.END_CLIENT_TICK.register(ListKey::tick);
-    }
+    public static void register() { ClientTickEvents.END_CLIENT_TICK.register(ListKey::tick); }
 
     private static void tick(@NotNull Minecraft minecraft) {
         boolean down = isDown(minecraft);
         boolean pressed = down && !wasDown;
         wasDown = down;
 
-        if (!pressed || minecraft.screen != null || minecraft.player == null) return;
+        if (!pressed || minecraft.gui.screen() != null || minecraft.player == null) return;
 
         minecraft.player.connection.sendCommand("allitems list");
     }

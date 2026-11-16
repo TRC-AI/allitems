@@ -29,7 +29,7 @@ public final class ClientChallenge {
         ClientPlayNetworking.registerGlobalReceiver(StatePayload.TYPE, (payload, _) -> state = payload);
         ClientPlayNetworking.registerGlobalReceiver(CollectedPayload.TYPE, ClientChallenge::onCollected);
         ClientPlayNetworking.registerGlobalReceiver(ListPayload.TYPE, (payload, context) ->
-                context.client().setScreen(new ChallengeListScreen(payload.collected(), payload.skipped())));
+                context.client().setScreenAndShow(new ChallengeListScreen(payload.collected(), payload.skipped())));
         ClientPlayConnectionEvents.DISCONNECT.register((_, _) -> state = StatePayload.INACTIVE);
     }
 
