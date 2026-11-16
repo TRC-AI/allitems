@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "allitems",
+	"version": "${version}",
+	"name": "All Items Challenge",
+	"description": "Collect every item in the game, freely or one random item at a time.",
+	"authors": [
+		"TRC-AI"
+	],
+	"contact": {
+		"github": "https://github.com/TRC-AI/"
+	},
+	"license": "MIT",
+	"icon": "assets/allitems/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"trc_addon": [
+			"trc.allitems.TRCAddon"
+		],
+		"trc_addon_client": [
+			"trc.allitems.client.TRCAddonClient"
+		],
+		"fabric-datagen": [
+			"trc.allitems.client.AllitemsDataGenerator"
+		]
+	},
+	"mixins": [
+		"allitems.mixins.json",
+		{
+			"config": "allitems.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": ["26.1", "26.1.1", "26.1.2"],
+		"java": ">=25",
+		"fabric-api": ">=0.144.0",
+		"trc-core": ">=1.2"
+	}
+}
