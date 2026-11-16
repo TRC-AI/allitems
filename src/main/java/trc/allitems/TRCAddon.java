@@ -5,6 +5,11 @@ import net.minecraft.resources.Identifier;
 import trc.core.ITRCAddon;
 import trc.core.settings.*;
 
+import trc.allitems.challenge.ChallengeCommands;
+import trc.allitems.challenge.ChallengeTracker;
+import trc.allitems.network.AllItemsNetworking;
+import trc.allitems.network.ChallengeSync;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +25,15 @@ public class TRCAddon implements ITRCAddon, ISettingsHolder {
     static final List<Setting> settings = new ArrayList<>();
 
     @Override
-    public void init() {
-        SettingsManager.getSettingsManager().register(this);
-    }
+    public void init() { SettingsManager.getSettingsManager().register(this); }
 
     @Override
-    public void start() {}
+    public void start() {
+        AllItemsNetworking.register();
+        ChallengeSync.register();
+        ChallengeTracker.register();
+        ChallengeCommands.register();
+    }
 
     @Override
     public String getModId() { return MOD_ID; }

@@ -19,9 +19,6 @@
 		],
 		"trc_addon_client": [
 			"trc.allitems.client.TRCAddonClient"
-		],
-		"fabric-datagen": [
-			"trc.allitems.client.AllitemsDataGenerator"
 		]
 	},
 	"mixins": [
@@ -37,5 +34,6 @@
 		"java": ">=25",
 		"fabric-api": ">=0.144.0",
 		"trc-core": ">=1.2"
-	}
+	},
+	"mcrprep": ["26.1", "26.1.1", "26.1.2", "26.2", "26.3"]
 }
