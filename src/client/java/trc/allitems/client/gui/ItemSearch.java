@@ -67,13 +67,13 @@ public final class ItemSearch {
 
         String modName = modNames.computeIfAbsent(id.getNamespace(), namespace -> FabricLoader.getInstance().getModContainer(namespace)
                 .map(container -> container.getMetadata().getName()).orElse(namespace).toLowerCase(Locale.ROOT));
-        List<String> tags = item.builtInRegistryHolder().tags().map(tag -> tag.location().toString()).toList();
+        List<String> tags = BuiltInRegistries.ITEM.wrapAsHolder(item).tags().map(tag -> tag.location().toString()).toList();
 
         return new Entry(id.toString(), id.getNamespace(), modName, name, name.split("[^\\p{L}0-9]+"),
                 name.replaceAll("[^a-z0-9]", ""), id.getPath().split("[_/]"), tags);
     }
 
-    private static double score(@NotNull Entry entry, @NotNull String query, @NotNull String[] tokens) {
+    private static double score(@NotNull Entry entry, @NotNull String query, @NotNull String @NotNull [] tokens) {
         double total = 0;
 
         for (String token : tokens) {
